@@ -9,7 +9,7 @@ import SHeaderMenu from './SHeaderMenu';
 
 /**
  * Header & menu component
- * @return {JSX} display the header and the menu
+ * @return {React.ReactElement} display the header and the menu
  */
 export const HeaderMenu = React.memo(() => {
   return (
