@@ -1,21 +1,38 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "useDefineForClassFields": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "allowJs": false,
-    "skipLibCheck": false,
-    "esModuleInterop": false,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "app",
+    "target": "esnext",
     "module": "ESNext",
-    "moduleResolution": "Node",
-    "resolveJsonModule": true,
+    "moduleResolution": "node",
+		"jsxFactory": "React.createElement",
+    "jsx": "react" ,
+    "skipLibCheck": true,
+    "strict": true,
+    "alwaysStrict": true,
+    "noEmit": false,
+    "checkJs": false,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
     "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "~*": ["./*"]
+    },
+    "lib": [
+      "DOM",
+      "ESNext"
+    ],
+    "types": [
+      "vite/client",
+			"./types/global",
+      "./types/window"
+    ]
   },
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "exclude": [
+    "node_modules",
+    "/**/*/__ava__",
+    "/**/*/__mocks__",
+    "/**/*/__tests__"
+  ]
 }
