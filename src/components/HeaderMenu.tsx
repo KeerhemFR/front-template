@@ -7,6 +7,10 @@ import CartIcon from '/images/cartIcon.png';
 
 import SHeaderMenu from './SHeaderMenu';
 
+/**
+ * Header & menu component
+ * @return {JSX} display the header and the menu
+ */
 export const HeaderMenu = React.memo(() => {
   return (
     <SHeaderMenu>
