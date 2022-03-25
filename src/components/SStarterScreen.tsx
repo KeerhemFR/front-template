@@ -14,6 +14,16 @@ const SStarterScreen = styled.div`
     flex-direction: column;
     align-items: center;
   }
+
+  h1 {
+    font-size: 28.8px;
+    line-height: 120%;
+    text-align: center;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin: 19px 0;
+    color: #000000;
+  }
 `;
 
 export default SStarterScreen;
