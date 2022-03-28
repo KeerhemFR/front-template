@@ -1,7 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import BgPicture from '/images/visuel-hp-soin-desktop.png';
 import SStarterScreen from './SStarterScreen';
-import { Link } from 'react-router-dom';
 
 /**
  * Screen displayed at the start of the experience
