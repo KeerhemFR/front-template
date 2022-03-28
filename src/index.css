@@ -26,6 +26,10 @@ body {
   font-weight: normal;
 }
 
+a {
+  text-decoration: none;
+}
+
 button {
   display: flex;
   flex-direction: column;
@@ -38,6 +42,7 @@ button {
   font-size: 12px;
   line-height: 17px;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .primaryButton {
