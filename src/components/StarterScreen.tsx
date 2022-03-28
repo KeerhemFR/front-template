@@ -1,25 +1,21 @@
 import React from 'react';
 import BgPicture from '/images/visuel-hp-soin-desktop.png';
 import SStarterScreen from './SStarterScreen';
-
-interface StarterScreenProps {
-  start: (displayStart: boolean) => void;
-}
+import { Link } from 'react-router-dom';
 
 /**
  * Screen displayed at the start of the experience
- * @prop {func} start set if the start screen is displayed or not
  * @return {React.ReactElement} Screen with a button to start the experience
  */
-export const StarterScreen = React.memo(({ start }: StarterScreenProps) => {
+export const StarterScreen = React.memo(() => {
   return (
     <SStarterScreen>
       <img src={BgPicture} />
       <div>
         <h1>FIND THE PERFECT SKINCARE RITUAL</h1>
-        <button className="primaryButton" onClick={() => start(false)}>
-          Start
-        </button>
+        <Link to="/diagResult">
+          <button className=".btn primaryButton">Start</button>
+        </Link>
       </div>
     </SStarterScreen>
   );
