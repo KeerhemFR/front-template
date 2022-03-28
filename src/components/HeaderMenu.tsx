@@ -5,7 +5,7 @@ import SearchIcon from '/images/searchIcon.png';
 import UserIcon from '/images/userIcon.png';
 import CartIcon from '/images/cartIcon.png';
 
-import SHeaderMenu from './SHeaderMenu';
+import { SHeaderMenu } from './SHeaderMenu';
 
 /**
  * Header & menu component

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const SHeaderMenu = styled.header`
+export const SHeaderMenu = styled.header`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -72,5 +72,3 @@ const SHeaderMenu = styled.header`
     height: 20px;
   }
 `;
-
-export default SHeaderMenu;

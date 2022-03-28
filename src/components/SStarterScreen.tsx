@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const SStarterScreen = styled.div`
+export const SStarterScreen = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,5 +25,3 @@ const SStarterScreen = styled.div`
     color: #000000;
   }
 `;
-
-export default SStarterScreen;
