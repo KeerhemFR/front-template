@@ -1,19 +1,17 @@
 import React, { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { DiagResult } from './DiagResult';
 import { HeaderMenu } from './HeaderMenu';
 import { StarterScreen } from './StarterScreen';
 
-export default function Main() {
-  const [displayStart, setDisplayStart] = useState(true);
-
+export const Main = () => {
   return (
     <React.Fragment>
       <HeaderMenu />
-      {displayStart ? (
-        <StarterScreen start={setDisplayStart} />
-      ) : (
-        <DiagResult start={setDisplayStart} />
-      )}
+      <Routes>
+        <Route path="/" element={<StarterScreen />} />
+        <Route path="/diagResult" element={<DiagResult />} />
+      </Routes>
     </React.Fragment>
   );
-}
+};
