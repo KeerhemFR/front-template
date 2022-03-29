@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { Main } from './components/Main';
+import { Main } from '~components/Main';
 
 /**
  * App components that will be use to load the site

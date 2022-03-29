@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Logo from '/images/Logo.png';
-import SearchIcon from '/images/searchIcon.png';
-import UserIcon from '/images/userIcon.png';
-import CartIcon from '/images/cartIcon.png';
+import Logo from '~assets/images/Logo.png';
+import SearchIcon from '~assets/images/searchIcon.png';
+import UserIcon from '~assets/images/userIcon.png';
+import CartIcon from '~assets/images/cartIcon.png';
 
-import { SHeaderMenu } from './SHeaderMenu';
+import { SHeaderMenu } from '~components/header/SHeaderMenu';
 
 /**
  * Header & menu component
