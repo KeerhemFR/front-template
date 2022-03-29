@@ -56,7 +56,7 @@ const defaultSuggestions: {
  * Pass the necessary data to all the components and display the necessary components depending the steps
  *
  * @prop {func} start set if the start screen is displayed or not
- * @return {JSX} display different components depending the step we're on
+ * @return {React.ReactElement} display different components depending the step we're on
  */
 export const DiagResult = React.memo(() => {
   const [currentStep, setCurrentStep] = useState<number>(0);
