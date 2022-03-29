@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "app",
+    "baseUrl": "src",
     "target": "esnext",
     "module": "ESNext",
     "moduleResolution": "node",
@@ -27,7 +27,7 @@
       "vite/client",
 			"./types/global",
       "./types/window"
-    ]
+    ],
   },
   "exclude": [
     "node_modules",

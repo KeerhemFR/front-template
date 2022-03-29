@@ -1,7 +1,31 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { resolve, join } from 'path';
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
-// https://vitejs.dev/config/
+/**
+ * Define vite configuration
+ * More information: https://vitejs.dev/config/
+ * @returns {UserConfigExport}
+ */
 export default defineConfig({
-  plugins: [react()]
-})
+	plugins: [
+		react(),
+	],
+	build: {
+		minify: true,
+		emptyOutDir: true,
+		outDir: join('../', 'dist'),
+	},
+	server: {
+		watch: {
+			usePolling: true,
+		},
+	},
+	resolve: {
+		alias: [
+			{ find: '~/', replacement: resolve('./', 'src') },
+      { find : '~assets', replacement: resolve('./', 'src/assets')},
+      { find: '~components', replacement: resolve('./', 'src/components')},		
+		],
+	},
+});
