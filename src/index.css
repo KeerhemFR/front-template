@@ -1,3 +1,61 @@
+/* local font initialisation */
+@font-face {
+  font-family: 'Guerlain Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('assets/fonts/GuerlainSans/GuerlainSans-Regular.eot'); /* IE9 Compat Modes */
+  src: local('Guerlain Sans'), local('GuerlainSans'),
+    url('assets/fonts/GuerlainSans/GuerlainSans-Regular.eot?#iefix')
+      format('embedded-opentype'),
+    /* IE6-IE8 */ url('assets/fonts/GuerlainSans/GuerlainSans-Regular.woff2')
+      format('woff2'),
+    /* Super Modern Browsers */
+      url('assets/fonts/GuerlainSans/GuerlainSans-Regular.woff') format('woff'),
+    /* Modern Browsers */
+      url('assets/fonts/GuerlainSans/GuerlainSans-Regular.ttf')
+      format('truetype'); /* Safari, Android, iOS */
+}
 /* all global css variable here */
 :root {
+  --main-font: Guerlain Sans;
+  --prim-color: #4a4a4a;
+}
+
+body {
+  font-family: var(--main-font);
+  font-style: normal;
+  font-weight: normal;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 13px 20px 14px;
+  width: 150px;
+  height: 44px;
+  margin: 0px 24px;
+  font-size: 12px;
+  line-height: 17px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.primaryButton {
+  background: #000000;
+  color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 50px;
+}
+
+.primaryButton:hover {
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
+  border-radius: 50px;
 }
