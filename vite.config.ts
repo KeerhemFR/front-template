@@ -25,7 +25,8 @@ export default defineConfig({
 		alias: [
 			{ find: '~/', replacement: resolve('./', 'src') },
       { find: '~assets', replacement: resolve('./', 'src/assets')},
-      { find: '~components', replacement: resolve('./', 'src/components')},		
+      { find: '~components', replacement: resolve('./', 'src/components')},	
+			{ find: '~content', replacement: resolve('./', 'src/content' )}	
 		],
 	},
 });
