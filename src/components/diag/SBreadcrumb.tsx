@@ -6,6 +6,6 @@ export const SBreadcrumb = styled.p`
   letter-spacing: 0.5px;
   text-transform: lowercase;
   color: var(--main-color);
-  margin-left: 60px;
+  margin: 11px 0 11px 60px;
   align-self: flex-start;
 `;
