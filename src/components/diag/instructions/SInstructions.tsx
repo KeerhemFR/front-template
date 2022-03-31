@@ -3,9 +3,10 @@ import styled from 'styled-components';
 export const SInstructions = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: center;
   align-items: center;
   min-height: 580px;
-  width: 65%;
+  width: 70%;
 
   h3 {
     font-size: 17px;
@@ -42,6 +43,10 @@ export const SInstructions = styled.div`
     width: 48px;
     height: 48px;
     margin: 0 2em 0 0;
+  }
+
+  label {
+    color: var(--main-color);
   }
 
   .instructions {
