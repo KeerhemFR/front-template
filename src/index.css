@@ -56,6 +56,15 @@ button {
 .primaryButton:hover {
   background: #ffffff;
   color: #000000;
+}
+
+.secondaryButton {
+  background: #ffffff;
   border: 1px solid #000000;
   border-radius: 50px;
+}
+
+.secondaryButton:hover {
+  background: #000000;
+  color: #ffffff;
 }
