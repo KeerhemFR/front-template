@@ -20,8 +20,8 @@ interface InstructionsProps {
  * @prop {React.ReactNode} children elements called between Instructions brackets
  * @returns {React.ReactElement} display instructions, and an picture or the module as a children
  */
-export const Instructions = React.memo(
-  ({ currentStep, setEnableStart, resultsOk, children }: InstructionsProps) => {
+export const Instructions: React.FunctionComponent<InstructionsProps> =
+  React.memo(({ currentStep, setEnableStart, resultsOk, children }) => {
     const [optInData, setOptInData] = useState<boolean>(false);
 
     /**
@@ -29,9 +29,9 @@ export const Instructions = React.memo(
      *
      * @param e targetted event on click of the box
      */
-    const toggleCheckbox = (e: any) => {
-      setOptInData(e.target.checked);
-      setEnableStart(e.target.checked);
+    const toggleCheckbox = (e: React.MouseEvent<HTMLInputElement>) => {
+      setOptInData((e.target as HTMLInputElement).checked);
+      setEnableStart((e.target as HTMLInputElement).checked);
     };
 
     return (
@@ -66,7 +66,6 @@ export const Instructions = React.memo(
                 </div>
                 <div>
                   <label htmlFor="optInData">
-                    {' '}
                     J’autorise Guerlain à collecter et stocker mes données
                     personnelles et mes données personnelles sensibles (par
                     exemple, des photos de ma peau) afin de mener à bien la
@@ -85,7 +84,6 @@ export const Instructions = React.memo(
                 </div>
                 <div>
                   <label htmlFor="optInAccount">
-                    {' '}
                     Je souhaite que le résultat de la consultation beauté soit
                     rattaché à mon compte client.
                   </label>
@@ -97,5 +95,4 @@ export const Instructions = React.memo(
         {children}
       </SInstructions>
     );
-  }
-);
+  });
