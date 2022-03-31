@@ -1,5 +1,17 @@
 import React, { useEffect, useState, useCallback } from 'react';
 
+import { Breadcrumb } from '~components/diag/Breadcrumb';
+import { ButtonPanel } from '~components/diag/ButtonPanel';
+import { Instructions } from '~components/diag/instructions/Instructions';
+import { Loader } from '~components/loader/Loader';
+
+import instructionPicture from '~assets/images/selfieInstructions.jpeg';
+
+import { SDiagResult } from '~components/diag/SDiagResult';
+
+import navGuide from '~content/breadcrumb.json';
+import steps from '~content/steps.json';
+
 const data: {
   subject: string;
   A: number;
@@ -55,7 +67,6 @@ const defaultSuggestions: {
 /**
  * Pass the necessary data to all the components and display the necessary components depending the steps
  *
- * @prop {func} start set if the start screen is displayed or not
  * @return {React.ReactElement} display different components depending the step we're on
  */
 export const DiagResult = React.memo(() => {
@@ -64,6 +75,7 @@ export const DiagResult = React.memo(() => {
   const [skinDiagResults, setSkinDiagResults] = useState<object>(data);
   const [moduleLoading, setModuleLoading] = useState<boolean>(false);
   const [listeners, setListeners] = useState<any>([]);
+  const [enableStart, setEnableStart] = useState<boolean>(false);
 
   /**
    * Update the step we're on when setCurrentStep is used
@@ -76,8 +88,8 @@ export const DiagResult = React.memo(() => {
       if (prevStep > step) {
         setResultsOk(false);
         step === 1 ? setCurrentStep(0) : setCurrentStep(step);
-        setCurrentStep(step);
       }
+      setCurrentStep(step);
     },
     [setCurrentStep]
   );
@@ -192,8 +204,34 @@ export const DiagResult = React.memo(() => {
   }, [window.YMK, currentStep]);
 
   return (
-    <div>
-      <div id="YMK-module"></div>;
-    </div>
+    <SDiagResult>
+      <Breadcrumb navGuide={navGuide[currentStep].title} />
+      <h2>{steps[currentStep].title}</h2>
+      {currentStep < 2 && (
+        <Instructions
+          currentStep={currentStep}
+          setEnableStart={setEnableStart}
+          resultsOk={resultsOk}
+        >
+          {currentStep === 0 ? (
+            <div className="sidePicture">
+              <img src={instructionPicture} />
+            </div>
+          ) : (
+            <div className="sidePicture">
+              {moduleLoading && <Loader />}
+              <div id="YMK-module"></div>
+            </div>
+          )}
+        </Instructions>
+      )}
+
+      <ButtonPanel
+        currentStep={currentStep}
+        updateStep={updateStep}
+        resultsOk={resultsOk}
+        enableStart={enableStart}
+      />
+    </SDiagResult>
   );
 });
