@@ -20,9 +20,9 @@ interface ButtonPanelProps {
  */
 export const ButtonPanel: React.FunctionComponent<ButtonPanelProps> =
   React.memo(({ currentStep, enableStart, resultsOk, updateStep }) => {
-    return (
-      <SButtonPanel>
-        {currentStep === 0 ? (
+    if (currentStep === 0) {
+      return (
+        <SButtonPanel>
           <button
             className="primaryButton"
             disabled={currentStep === 0 && !enableStart}
@@ -30,15 +30,19 @@ export const ButtonPanel: React.FunctionComponent<ButtonPanelProps> =
           >
             Start
           </button>
-        ) : (
-          <React.Fragment>
-            <button
-              className="secondaryButton"
-              onClick={() => updateStep(currentStep - 1, currentStep)}
-            >
-              Previous
-            </button>
-            {currentStep === 1 ? (
+        </SButtonPanel>
+      );
+    } else {
+      if (currentStep === 1) {
+        return (
+          <SButtonPanel>
+            <React.Fragment>
+              <button
+                className="secondaryButton"
+                onClick={() => updateStep(currentStep - 1, currentStep)}
+              >
+                Previous
+              </button>
               <a href="#productFocus">
                 <button
                   className="primaryButton"
@@ -50,7 +54,19 @@ export const ButtonPanel: React.FunctionComponent<ButtonPanelProps> =
                   Next
                 </button>
               </a>
-            ) : (
+            </React.Fragment>
+          </SButtonPanel>
+        );
+      } else {
+        return (
+          <SButtonPanel>
+            <React.Fragment>
+              <button
+                className="secondaryButton"
+                onClick={() => updateStep(currentStep - 1, currentStep)}
+              >
+                Previous
+              </button>
               <button
                 className="primaryButton"
                 disabled={
@@ -62,9 +78,9 @@ export const ButtonPanel: React.FunctionComponent<ButtonPanelProps> =
               >
                 {currentStep === 2 ? 'Start again' : 'Next'}
               </button>
-            )}
-          </React.Fragment>
-        )}
-      </SButtonPanel>
-    );
+            </React.Fragment>
+          </SButtonPanel>
+        );
+      }
+    }
   });
