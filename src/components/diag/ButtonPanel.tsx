@@ -12,6 +12,10 @@ interface ButtonPanelProps {
 /**
  * Handle the buttons to proceed through the different steps
  *
+ * @prop {number} currentStep actual step of the experience
+ * @prop {boolean} enableStart settle if yes or no the start button is clickable
+ * @prop {boolean} resultsOk check if we have results from the selfie module
+ * @prop {function} updateStep handle the change of step when button are clicked
  * @returns {React.ReactElement} One or two buttons, depending the steps, to proceed through the experience
  */
 export const ButtonPanel = ({
