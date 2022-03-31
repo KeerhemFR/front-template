@@ -18,8 +18,8 @@ interface ButtonPanelProps {
  * @prop {function} updateStep handle the change of step when button are clicked
  * @returns {React.ReactElement} One or two buttons, depending the steps, to proceed through the experience
  */
-export const ButtonPanel = React.memo(
-  ({ currentStep, enableStart, resultsOk, updateStep }: ButtonPanelProps) => {
+export const ButtonPanel: React.FunctionComponent<ButtonPanelProps> =
+  React.memo(({ currentStep, enableStart, resultsOk, updateStep }) => {
     return (
       <SButtonPanel>
         {currentStep === 0 ? (
@@ -67,5 +67,4 @@ export const ButtonPanel = React.memo(
         )}
       </SButtonPanel>
     );
-  }
-);
+  });

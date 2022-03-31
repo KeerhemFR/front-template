@@ -11,6 +11,8 @@ interface BreadcrumbProps {
  * @param {string} navGuide current step of the experience
  * @returns {React.ReactElement} display the current step
  */
-export const Breadcrumb = React.memo(({ navGuide }: BreadcrumbProps) => {
-  return <SBreadcrumb>{navGuide}</SBreadcrumb>;
-});
+export const Breadcrumb: React.FunctionComponent<BreadcrumbProps> = React.memo(
+  ({ navGuide }) => {
+    return <SBreadcrumb>{navGuide}</SBreadcrumb>;
+  }
+);
