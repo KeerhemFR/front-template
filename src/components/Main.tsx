@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { DiagResult } from '~components/diag/DiagResult';
 import { HeaderMenu } from '~components/header/HeaderMenu';
-import { StarterScreen } from '~components/diag/StarterScreen';
+import { StarterScreen } from '~components/starterScreen/StarterScreen';
 
 /**
  * Main component that display header, footer and differents pages depending the path

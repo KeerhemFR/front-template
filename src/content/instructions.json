@@ -1,0 +1,23 @@
+{
+  "title": "Take a selfie",
+  "text": "The consultation will analyze 6 parameters of your skin from a selfie and identify your strengths and weaknesses.",
+  "rules" : [
+    {
+      "icon": "pictoSansLunettes.png",
+      "text": "Remove your glasses"
+    },
+    {
+      "icon": "pictoSansMaquillage.png",
+      "text": "To get the most accurate recommendations, it is advised to not wear makeup"
+    },
+    {
+      "icon": "pictoEclairage.png",
+      "text": "Take the selfie in a bright environment"
+    },
+    {
+      "icon": "pictoCadrage.png",
+      "text": "Keep your face in the defined area"
+    }
+  ],
+  "sidePicture" : "selfieInstructions.png"
+}
