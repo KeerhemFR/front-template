@@ -32,55 +32,53 @@ export const ButtonPanel: React.FunctionComponent<ButtonPanelProps> =
           </button>
         </SButtonPanel>
       );
-    } else {
-      if (currentStep === 1) {
-        return (
-          <SButtonPanel>
-            <React.Fragment>
-              <button
-                className="secondaryButton"
-                onClick={() => updateStep(currentStep - 1, currentStep)}
-              >
-                Previous
-              </button>
-              <a href="#productFocus">
-                <button
-                  className="primaryButton"
-                  disabled={
-                    (currentStep === 1 && !resultsOk) || currentStep > 1
-                  }
-                  onClick={() => updateStep(currentStep + 1, currentStep)}
-                >
-                  Next
-                </button>
-              </a>
-            </React.Fragment>
-          </SButtonPanel>
-        );
-      } else {
-        return (
-          <SButtonPanel>
-            <React.Fragment>
-              <button
-                className="secondaryButton"
-                onClick={() => updateStep(currentStep - 1, currentStep)}
-              >
-                Previous
-              </button>
+    }
+
+    if (currentStep === 1) {
+      return (
+        <SButtonPanel>
+          <React.Fragment>
+            <button
+              className="secondaryButton"
+              onClick={() => updateStep(currentStep - 1, currentStep)}
+            >
+              Previous
+            </button>
+            <a href="#productFocus">
               <button
                 className="primaryButton"
-                disabled={
-                  currentStep === 2 ||
-                  (currentStep === 1 && !resultsOk) ||
-                  (currentStep === 0 && !enableStart)
-                }
+                disabled={(currentStep === 1 && !resultsOk) || currentStep > 1}
                 onClick={() => updateStep(currentStep + 1, currentStep)}
               >
-                {currentStep === 2 ? 'Start again' : 'Next'}
+                Next
               </button>
-            </React.Fragment>
-          </SButtonPanel>
-        );
-      }
+            </a>
+          </React.Fragment>
+        </SButtonPanel>
+      );
     }
+
+    return (
+      <SButtonPanel>
+        <React.Fragment>
+          <button
+            className="secondaryButton"
+            onClick={() => updateStep(currentStep - 1, currentStep)}
+          >
+            Previous
+          </button>
+          <button
+            className="primaryButton"
+            disabled={
+              currentStep === 2 ||
+              (currentStep === 1 && !resultsOk) ||
+              (currentStep === 0 && !enableStart)
+            }
+            onClick={() => updateStep(currentStep + 1, currentStep)}
+          >
+            {currentStep === 2 ? 'Start again' : 'Next'}
+          </button>
+        </React.Fragment>
+      </SButtonPanel>
+    );
   });
