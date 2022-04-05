@@ -1,9 +1,10 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useMemo } from 'react';
 
 import { Breadcrumb } from '~components/diag/Breadcrumb';
 import { ButtonPanel } from '~components/diag/ButtonPanel';
 import { Instructions } from '~components/diag/instructions/Instructions';
 import { Loader } from '~components/loader/Loader';
+import { RadarChartResults } from '~components/diag/chart/RadarChartResults';
 
 import instructionPicture from '~assets/images/selfieInstructions.jpeg';
 
@@ -64,6 +65,15 @@ const defaultSuggestions: {
   completeRoutine: '',
 };
 
+// --- INTERFACE ---
+export interface renderCustomBarLabelProps {
+  textAnchor: string;
+  y: number;
+  x: number;
+  payload: Record<string, string>;
+  index: number;
+}
+
 /**
  * Pass the necessary data to all the components and display the necessary components depending the steps
  *
@@ -72,7 +82,7 @@ const defaultSuggestions: {
 export const DiagResult = React.memo(() => {
   const [currentStep, setCurrentStep] = useState<number>(0);
   const [resultsOk, setResultsOk] = useState<boolean>(false);
-  const [skinDiagResults, setSkinDiagResults] = useState<object>(data);
+  const [skinDiagResults, setSkinDiagResults] = useState<typeof data>(data);
   const [moduleLoading, setModuleLoading] = useState<boolean>(false);
   const [listeners, setListeners] = useState<any>([]);
   const [enableStart, setEnableStart] = useState<boolean>(false);
@@ -93,6 +103,142 @@ export const DiagResult = React.memo(() => {
     },
     [setCurrentStep]
   );
+
+  const lowestScore = useMemo(
+    () =>
+      skinDiagResults.reduce((prev, curr) => (prev.A < curr.A ? prev : curr)),
+    [skinDiagResults.map((r) => r.A).join('')]
+  );
+
+  const highestScore = useMemo(
+    () =>
+      skinDiagResults.reduce((prev, curr) => (prev.A > curr.A ? prev : curr)),
+    [skinDiagResults.map((r) => r.A).join('')]
+  );
+
+  const renderCustomBarLabel: React.FunctionComponent<
+    renderCustomBarLabelProps
+  > = ({ textAnchor, y, x, payload, index }) => {
+    const dotsArray = ['purple', 'green', 'pink', 'darkGreen', 'cyan', 'grey'];
+
+    const objX =
+      textAnchor === 'end'
+        ? x - 120
+        : textAnchor === 'middle'
+        ? x - 60
+        : x + 10;
+
+    const objY = index === 0 ? y - 40 : index % 2 === 0 ? y - 10 : y;
+
+    const isLowest =
+      skinDiagResults[index].A === lowestScore.A && lowestScore.A !== 0;
+
+    const isHighest =
+      skinDiagResults[index].A === highestScore.A && highestScore.A !== 0;
+
+    return (
+      <g>
+        {isLowest && (
+          <foreignObject
+            x={
+              textAnchor === 'end'
+                ? 0
+                : textAnchor === 'start'
+                ? objX + 8
+                : objX
+            }
+            y={index === 3 ? objY - 3 : objY - 30}
+            width="130"
+            height="30"
+          >
+            <div className="chartTag lightTag">Your Priority</div>
+          </foreignObject>
+        )}
+
+        {isHighest && (
+          <foreignObject
+            x={
+              textAnchor === 'end'
+                ? 0
+                : textAnchor === 'start'
+                ? objX + 8
+                : objX
+            }
+            y={index === 3 ? objY - 3 : objY - 30}
+            width="130"
+            height="30"
+          >
+            <div className="chartTag darkTag">Your Strength</div>
+          </foreignObject>
+        )}
+
+        {textAnchor === 'end' ? (
+          <React.Fragment>
+            <circle cx={x - 30} cy={objY + 6} r="6" fill={dotsArray[index]} />
+            <foreignObject x={objX - 30} y={objY} width="100" height="70">
+              <div className="chartLabelsBoxRight">
+                <div className="chartLabels chartLabelsRight">
+                  {payload.value}
+                </div>
+                <span className="chartLabelsRight">{`${skinDiagResults[index].A} / 100`}</span>
+              </div>
+            </foreignObject>
+          </React.Fragment>
+        ) : (
+          <React.Fragment>
+            <circle
+              cx={index === 0 ? objX - 2 : index === 3 ? objX + 22 : objX + 28}
+              cy={
+                index === 3 && (isHighest || isLowest)
+                  ? objY + 40
+                  : index === 0
+                  ? objY + 22
+                  : objY + 6
+              }
+              r="6"
+              fill={dotsArray[index]}
+            />
+            <foreignObject
+              x={index === 0 || index === 3 ? objX + 14 : objX + 44}
+              y={index === 3 && (isHighest || isLowest) ? objY + 30 : objY}
+              width={index === 1 ? 80 : 100}
+              height="70"
+            >
+              <div
+                className={`chartLabelsBox 
+                  ${
+                    textAnchor === 'start'
+                      ? 'chartLabelsBoxLeft'
+                      : 'chartLabelsBoxCenter'
+                  }`}
+              >
+                <div
+                  className={`
+                    chartLabels 
+                    ${
+                      textAnchor === 'start'
+                        ? 'chartLabelsLeft'
+                        : 'chartLabelsCenter'
+                    }`}
+                >
+                  {payload.value}
+                </div>
+                <span
+                  className={`
+                    chartLabels 
+                    ${
+                      textAnchor === 'start'
+                        ? 'chartLabelsLeft'
+                        : 'chartLabelsCenter'
+                    }`}
+                >{`${skinDiagResults[index].A} / 100`}</span>
+              </div>
+            </foreignObject>
+          </React.Fragment>
+        )}
+      </g>
+    );
+  };
 
   //Basic setup of YMK module
   const initYMK = (d: any, k: any) => {
@@ -223,6 +369,11 @@ export const DiagResult = React.memo(() => {
               <div id="YMK-module"></div>
             </div>
           )}
+          <RadarChartResults
+            skinDiagResults={skinDiagResults}
+            resultsOk={resultsOk}
+            renderCustomBarLabel={renderCustomBarLabel}
+          />
         </Instructions>
       )}
 
