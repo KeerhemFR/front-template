@@ -106,18 +106,37 @@ export const DiagResult = React.memo(() => {
     [setCurrentStep]
   );
 
+  /**
+   * Stock the lowest score
+   * @const {{subject: string, A: number}[]} skinDiagResults array of object that store the results of the selfie module
+   * @return {subject: string, A: number} lowest score from the selfie module results
+   */
   const lowestScore = useMemo(
     () =>
       skinDiagResults.reduce((prev, curr) => (prev.A < curr.A ? prev : curr)),
     [skinDiagResults.map((r) => r.A).join('')]
   );
 
+  /**
+   * Stock the highest score
+   * @const {{subject: string, A: number}[]} skinDiagResults array of object that store the results of the selfie module
+   * @return {subject: string, A: number} highest score from the selfie module results
+   */
   const highestScore = useMemo(
     () =>
       skinDiagResults.reduce((prev, curr) => (prev.A > curr.A ? prev : curr)),
     [skinDiagResults.map((r) => r.A).join('')]
   );
 
+  /**
+   * Component to customize the RadarChartResults labels'
+   * @prop {string} textAnchor indication of the label position on the chart
+   * @prop {number} x horizontal coordinate
+   * @prop {number} y vertical coordinate
+   * @prop {object} payload informations passed by radar chart module
+   * @prop {number} index index of the label to know where to load it
+   * @returns {React.ReactElement} customization of the radar chart's labels
+   */
   const renderCustomBarLabel: React.FunctionComponent<
     renderCustomBarLabelProps
   > = ({ textAnchor, y, x, payload, index }) => {

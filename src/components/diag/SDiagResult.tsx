@@ -37,7 +37,6 @@ export const SDiagResult = styled.div`
     align-items: center;
     justify-content: center;
     text-transform: uppercase;
-    color: #ffffff;
   }
 
   .chartLabelsBox {
