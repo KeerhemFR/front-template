@@ -80,6 +80,8 @@ export interface renderCustomBarLabelProps {
  * @return {React.ReactElement} display different components depending the step we're on
  */
 export const DiagResult = React.memo(() => {
+  DiagResult.displayName = 'DiagResult';
+
   const [currentStep, setCurrentStep] = useState<number>(0);
   const [resultsOk, setResultsOk] = useState<boolean>(false);
   const [skinDiagResults, setSkinDiagResults] = useState<typeof data>(data);

@@ -22,6 +22,8 @@ interface InstructionsProps {
  */
 export const Instructions: React.FunctionComponent<InstructionsProps> =
   React.memo(({ currentStep, setEnableStart, resultsOk, children }) => {
+    Instructions.displayName = 'Instructions';
+
     const [optInData, setOptInData] = useState<boolean>(false);
 
     /**

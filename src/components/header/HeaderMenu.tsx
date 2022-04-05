@@ -12,6 +12,8 @@ import { SHeaderMenu } from '~components/header/SHeaderMenu';
  * @return {React.ReactElement} display the header and the menu
  */
 export const HeaderMenu = React.memo(() => {
+  HeaderMenu.displayName = 'HeaderMenu';
+
   return (
     <SHeaderMenu>
       <div className="headerLogo">

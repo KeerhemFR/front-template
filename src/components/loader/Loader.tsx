@@ -8,6 +8,8 @@ import { SLoader } from '~components/loader/SLoader';
  * @returns {React.ReactElement} load SVG bottle shaped loader
  */
 export const Loader = React.memo(() => {
+  Loader.displayName = 'Loader';
+
   return (
     <SLoader>
       <div id="banner">

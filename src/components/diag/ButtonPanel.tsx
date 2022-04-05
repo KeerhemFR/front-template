@@ -20,6 +20,8 @@ interface ButtonPanelProps {
  */
 export const ButtonPanel: React.FunctionComponent<ButtonPanelProps> =
   React.memo(({ currentStep, enableStart, resultsOk, updateStep }) => {
+    ButtonPanel.displayName = 'ButtonPanel';
+
     if (currentStep === 0) {
       return (
         <SButtonPanel>
