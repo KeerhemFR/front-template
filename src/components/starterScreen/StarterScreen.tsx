@@ -8,6 +8,8 @@ import { SStarterScreen } from '~components/starterScreen/SStarterScreen';
  * @return {React.ReactElement} Screen with a button to start the experience
  */
 export const StarterScreen = React.memo(() => {
+  StarterScreen.displayName = 'StarterScreen';
+
   return (
     <SStarterScreen>
       <img src={BgPicture} />

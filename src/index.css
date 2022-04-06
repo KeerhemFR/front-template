@@ -68,3 +68,12 @@ button {
   background: #000000;
   color: #ffffff;
 }
+
+.lightTag {
+  background: #dddedf;
+}
+
+.darkTag {
+  background: #535353;
+  color: white;
+}

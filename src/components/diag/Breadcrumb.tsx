@@ -13,6 +13,8 @@ interface BreadcrumbProps {
  */
 export const Breadcrumb: React.FunctionComponent<BreadcrumbProps> = React.memo(
   ({ navGuide }) => {
+    Breadcrumb.displayName = 'Breadcrumb';
+
     return <SBreadcrumb>{navGuide}</SBreadcrumb>;
   }
 );
