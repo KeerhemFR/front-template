@@ -24,10 +24,17 @@ interface RoutineLineProps {
   displayEssential: boolean;
 }
 
+/**
+ * Display the routine line to know the order the products need to be use in the routine
+ * @prop {object} needs suggestion of product depending the results of the experience
+ * @prop {boolean} displayEssential check if the essential routine or the complete routine should be displayed
+ * @return {React.ReactElement} display the routine linked to the recommanded product
+ */
 export const RoutineLine: React.FunctionComponent<RoutineLineProps> =
   React.memo(({ needs, displayEssential }) => {
     RoutineLine.displayName = 'RoutineLine';
 
+    //filter only the products in the essential routine
     if (displayEssential) {
       return (
         <SRoutineLine>
@@ -71,6 +78,7 @@ export const RoutineLine: React.FunctionComponent<RoutineLineProps> =
       );
     }
 
+    //display the complete routine
     return (
       <SRoutineLine>
         {needs.routineProducts.map((product, index) => {
