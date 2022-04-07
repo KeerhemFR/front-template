@@ -6,6 +6,7 @@ import { Instructions } from '~components/diag/instructions/Instructions';
 import { Loader } from '~components/loader/Loader';
 import { RadarChartResults } from '~components/diag/chart/RadarChartResults';
 import { ProductSuggestions } from '~components/diag/suggestions/ProductSuggestions';
+import { Footer } from '~components/footer/Footer';
 
 import instructionPicture from '~assets/images/selfieInstructions.jpeg';
 
@@ -413,6 +414,8 @@ export const DiagResult = React.memo(() => {
         resultsOk={resultsOk}
         enableStart={enableStart}
       />
+
+      {currentStep === 2 && <Footer />}
     </SDiagResult>
   );
 });
