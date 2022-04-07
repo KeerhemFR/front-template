@@ -21,11 +21,55 @@ interface RoutineLineProps {
       essentialRoutine: boolean;
     }[];
   };
+  displayEssential: boolean;
 }
 
 export const RoutineLine: React.FunctionComponent<RoutineLineProps> =
-  React.memo(({ needs }) => {
+  React.memo(({ needs, displayEssential }) => {
     RoutineLine.displayName = 'RoutineLine';
+
+    if (displayEssential) {
+      return (
+        <SRoutineLine>
+          {needs.routineProducts
+            .filter((product) => product.essentialRoutine)
+            .map((product, index) => {
+              return (
+                <div className="lineProduct">
+                  <div className="essentialDisplay">
+                    {product.essential ? `YOUR ESSENTIAL` : `   `}
+                  </div>
+                  <div className="productContent">
+                    <img src={`src/assets/images/${product.picture}`} />
+                    <svg width="160px" height="70px">
+                      <line
+                        x1="0"
+                        y1="25"
+                        x2="160"
+                        y2="25"
+                        stroke="#E9E7D2"
+                        stroke-width="2"
+                      />
+                      <circle
+                        cx="80"
+                        cy="25"
+                        r="15"
+                        fill="#fff"
+                        stroke="#E9E7D2"
+                        stroke-width="2"
+                      />
+                      <text x="75" y="30">
+                        {index + 1}
+                      </text>
+                    </svg>
+                    <span>{product.name}</span>
+                  </div>
+                </div>
+              );
+            })}
+        </SRoutineLine>
+      );
+    }
 
     return (
       <SRoutineLine>
