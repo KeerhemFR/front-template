@@ -5,7 +5,7 @@ export const SBreadcrumb = styled.p`
   line-height: 16px;
   letter-spacing: 0.5px;
   text-transform: lowercase;
-  color: var(--main-color);
+  color: var(--prim-color);
   margin: 11px 0 11px 60px;
   align-self: flex-start;
 `;

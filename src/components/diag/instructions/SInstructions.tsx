@@ -46,7 +46,7 @@ export const SInstructions = styled.div`
   }
 
   label {
-    color: var(--main-color);
+    color: var(--prim-color);
   }
 
   .instructions {
@@ -69,7 +69,7 @@ export const SInstructions = styled.div`
     display: flex;
     margin-top: 1.5em;
     line-height: 1.5em;
-    color: var(--main-color);
+    color: var(--prim-color);
   }
 
   .optInLine input {

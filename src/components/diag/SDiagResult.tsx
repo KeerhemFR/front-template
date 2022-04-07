@@ -78,7 +78,7 @@ export const SDiagResult = styled.div`
     line-height: 120%;
     letter-spacing: 0.02em;
     text-transform: uppercase;
-    color: #4a4a4a;
+    color: var(--prim-color);
   }
 
   .green {

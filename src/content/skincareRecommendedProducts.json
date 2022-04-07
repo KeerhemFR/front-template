@@ -9,8 +9,6 @@
     "productLine": "Orchidée Impériale",
     "product": "The Cream",
     "price": "430.00€",
-    "essentialRoutine": "imperfectionEssential.png",
-    "completeRoutine": "imperfectionComplete.png",
     "routineProducts": [
       {
         "name": "The Cream",
@@ -56,8 +54,6 @@
     "productLine": "Abeille Royale",
     "product": "Advanced Youth Watery Oil",
     "price": "130.00€",
-    "essentialRoutine": "wrinklesEssential.png",
-    "completeRoutine": "wrinklesComplete.png",
     "routineProducts": [
       {
         "name": "Multi-wrinkle minimizer Eye Cream",
@@ -113,8 +109,6 @@
     "productLine": "Orchidée Impériale",
     "product": "The Cream",
     "price": "430.00€",
-    "essentialRoutine": "firmnessEssential.png",
-    "completeRoutine": "firmnessComplete.png",
     "routineProducts": [
       {
         "name": "The Cream",
@@ -160,8 +154,6 @@
     "productLine": "Orchidée Impériale",
     "product": "The Cream",
     "price": "430.00€",
-    "essentialRoutine": "poresEssential.png",
-    "completeRoutine": "poresComplete.png",
     "routineProducts": [
       {
         "name": "The Cream",
@@ -207,8 +199,6 @@
     "productLine": "Orchidée Impériale",
     "product": "The Micro-Lift Concentrate",
     "price": "440.00€",
-    "essentialRoutine": "dehydratedEssential.png",
-    "completeRoutine": "dehydratedComplete.png",
     "routineProducts": [
       {
         "name": "The Cream",
@@ -254,8 +244,6 @@
     "productLine": "Abeille Royale",
     "product": "Advanced Youth Watery Oil",
     "price": "130.00€",
-    "essentialRoutine": "radianceEssential.png",
-    "completeRoutine": "radianceComplete.png",
     "routineProducts": [
       {
         "name": "Multi-wrinkle minimizer Eye Cream",
