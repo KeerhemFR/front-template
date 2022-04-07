@@ -58,7 +58,7 @@ export const RoutineLine: React.FunctionComponent<RoutineLineProps> =
                         stroke="#E9E7D2"
                         stroke-width="2"
                       />
-                      <text x="75" y="30">
+                      <text x={index === 0 ? '78' : '76'} y="30">
                         {index + 1}
                       </text>
                     </svg>
