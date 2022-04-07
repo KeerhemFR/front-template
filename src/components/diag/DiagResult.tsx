@@ -5,6 +5,7 @@ import { ButtonPanel } from '~components/diag/ButtonPanel';
 import { Instructions } from '~components/diag/instructions/Instructions';
 import { Loader } from '~components/loader/Loader';
 import { RadarChartResults } from '~components/diag/chart/RadarChartResults';
+import { ProductSuggestions } from '~components/diag/suggestions/ProductSuggestions';
 
 import instructionPicture from '~assets/images/selfieInstructions.jpeg';
 
@@ -374,6 +375,7 @@ export const DiagResult = React.memo(() => {
     <SDiagResult>
       <Breadcrumb navGuide={navGuide[currentStep].title} />
       <h2>{steps[currentStep].title}</h2>
+
       {currentStep < 2 && (
         <Instructions
           currentStep={currentStep}
@@ -396,6 +398,13 @@ export const DiagResult = React.memo(() => {
             renderCustomBarLabel={renderCustomBarLabel}
           />
         </Instructions>
+      )}
+
+      {currentStep === 2 && (
+        <ProductSuggestions
+          highestScore={highestScore}
+          lowestScore={lowestScore}
+        />
       )}
 
       <ButtonPanel
