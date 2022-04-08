@@ -70,7 +70,7 @@ export const ProductSuggestions: React.FunctionComponent<ProductSuggestionsProps
     }, [lowestScore.A]);
 
     return (
-      <SProductSuggestions>
+      <SProductSuggestions id="productFocus">
         <section className="productContainer">
           <div className="yourNeeds">
             <h4>Your Essential</h4>
