@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { SButtonPanel } from '~components/diag/SButtonPanel';
 
@@ -69,17 +70,14 @@ export const ButtonPanel: React.FunctionComponent<ButtonPanelProps> =
           >
             Previous
           </button>
-          <button
-            className="primaryButton"
-            disabled={
-              currentStep === 2 ||
-              (currentStep === 1 && !resultsOk) ||
-              (currentStep === 0 && !enableStart)
-            }
-            onClick={() => updateStep(currentStep + 1, currentStep)}
-          >
-            {currentStep === 2 ? 'Start again' : 'Next'}
-          </button>
+          <Link to="/">
+            <button
+              className="primaryButton"
+              onClick={() => updateStep(currentStep + 1, currentStep)}
+            >
+              {currentStep === 2 ? 'Start again' : 'Next'}
+            </button>
+          </Link>
         </React.Fragment>
       </SButtonPanel>
     );
