@@ -140,7 +140,7 @@ For some further explanations on how work the module, please check Recharts' [of
 ### YMK
 
 YMK is the module to take the selfie to perform a skin diagnostic.
-The **initYMK** function initialize the module, and can run thanks to the useEffect loading the API key.
+It is a **client library CDN** initialized through the **initYMK** function by creating a script tag in the HMTL via the DOM, and can run thanks to the useEffect loading the API key.
 The **registerEvents** function settle the different events the module will proceed through.
 The **closeYMKModule** function remove one of these events.
 When on step 1, a useEffect start the module.
