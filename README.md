@@ -14,7 +14,8 @@ Since it was made to fit a certain site, some files will surely needs to be remo
 3. [Installation](#installation)
 4. [Guideline](#guideline)
 5. [Features](#features)
-6. [Components Explanation](#components-explanation)
+6. [Modules Explanation](#modules-explanation)
+7. [Components Explanation](#components-explanation)
 
 ## General Info
 
@@ -29,14 +30,14 @@ The project also use **eslint** and **prettier** to help to keep a good standard
 
 - nodejs : version ^12.17.0
 - react : version ^17.0.2
-- @types/react : version ^17.0.33
-- @types/react-router-dom : version ^5.3.3
-- @types/recharts : version ^1.8.23
-- @types/styled-components : version ^5.1.24
+
+If you don't have **nodejs** installed yet, you can follow this [nodejs install instructions](https://nodejs.org/en/download/package-manager/)
+
+If you need some info on React, here is [React official documentation](https://reactjs.org/)
 
 ## Installation
 
-First of all, if you don't already have it, you will need to install **npm** to your systme to install and run this project.
+First of all, if you don't already have it, you will need to install **nodejs** to your system to install and run this project.
 
 Get the repository locally with the command `git@github.ibm.com:Guillaume-Keerhem-CIC/lvmh-front-template.git`
 
@@ -121,6 +122,29 @@ The 3 main features are, in this order:
 1. Take a selfie to perform your skin analysis
 2. Display the results of the analysis through a chart
 3. Recommand a product or a product line depending the score you get
+
+## Modules Explanation
+
+### Recharts
+
+Recharts is the module used in this project to make the spidercharts.
+The module can make several types of charts, depending what you import from it.
+We import those following parameters to make the spiderchart:
+
+- RadarChart : the types of chart, this one being the spiderchart.
+- PolarAngleAxis : for displaying the labels on the chart. We use **DiagResult** 's **renderCustomBarLabel** to customize them and place them as we want.
+- Radar : for displaying the results on the chart. We use **CustomScatterDot** to customize the dots on it and to make them clickable.
+
+For some further explanations on how work the module, please check Recharts' [official documentation](https://recharts.org/en-US)
+
+### YMK
+
+YMK is the module to take the selfie to perform a skin diagnostic.
+The **initYMK** function initialize the module, and can run thanks to the useEffect loading the API key.
+The **registerEvents** function settle the different events the module will proceed through.
+The **closeYMKModule** function remove one of these events.
+When on step 1, a useEffect start the module.
+The module then stock the resutls in the **skinDiagResults** variable.
 
 ## Components Explanation
 

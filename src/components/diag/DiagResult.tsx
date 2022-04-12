@@ -45,28 +45,6 @@ const data: {
   },
 ];
 
-const defaultSuggestions: {
-  priority: string;
-  essential: string;
-  productPic: string;
-  productLine: string;
-  product: string;
-  price: string;
-  essentialRoutine: string;
-  completeRoutine: string;
-} = {
-  priority:
-    'Please take a selfie on the previous page to know your skin care priority.',
-  essential:
-    'Please take a selfie on the previous page to know what product you will need.',
-  productPic: '',
-  productLine: '',
-  product: '',
-  price: '',
-  essentialRoutine: '',
-  completeRoutine: '',
-};
-
 // --- INTERFACE ---
 export interface renderCustomBarLabelProps {
   textAnchor: string;
