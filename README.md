@@ -39,7 +39,7 @@ If you need some info on React, here is [React official documentation](https://r
 
 First of all, if you don't already have it, you will need to install **nodejs** to your system to install and run this project.
 
-Get the repository locally with the command `git@github.ibm.com:Guillaume-Keerhem-CIC/lvmh-front-template.git`
+Get the repository locally with the command `git clone git@github.ibm.com:Guillaume-Keerhem-CIC/lvmh-front-template.git`
 
 Once you have the repository on local, enter the folder in the terminal and type `npm install` or `npm i` to install all the necessary depedencies.
 
