@@ -5,11 +5,13 @@ export const SStarterScreen = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: 867px;
   overflow: hidden;
+  background-image: url('src/assets/images/visuel-hp-soin-desktop.png');
+  background-repeat: no-repeat;
+  background-position: center;
 
   div {
-    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;

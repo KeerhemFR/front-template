@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import BgPicture from '~assets/images/visuel-hp-soin-desktop.png';
 import { SStarterScreen } from '~components/starterScreen/SStarterScreen';
 
 /**
@@ -12,7 +11,6 @@ export const StarterScreen = React.memo(() => {
 
   return (
     <SStarterScreen>
-      <img src={BgPicture} />
       <div>
         <h1>FIND THE PERFECT SKINCARE RITUAL</h1>
         <Link to="/diagResult">
