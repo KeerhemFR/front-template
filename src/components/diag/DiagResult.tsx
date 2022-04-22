@@ -379,7 +379,6 @@ export const DiagResult = React.memo(() => {
             skinDiagResults={skinDiagResults}
             resultsOk={resultsOk}
             renderCustomBarLabel={renderCustomBarLabel}
-            viewportWidth={viewportWidth}
           />
         </Instructions>
       )}
