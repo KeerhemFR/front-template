@@ -10,4 +10,13 @@ export const SButtonPanel = styled.div`
     background-color: #767676 !important;
     border: 1px solid #000 !important;
   }
+
+  @media screen and (max-width: 576px) {
+    flex-direction: column;
+    margin: 2em 1em 2em 1em;
+
+    button {
+      margin: 10px 0;
+    }
+  }
 `;

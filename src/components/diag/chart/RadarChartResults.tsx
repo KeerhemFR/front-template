@@ -28,6 +28,7 @@ interface RadarChartResultsProps {
   }[];
   resultsOk: boolean;
   renderCustomBarLabel: React.FunctionComponent<renderCustomBarLabelProps>;
+  viewportWidth: number;
 }
 
 // --- COMPONENTS EXPORTS ---
@@ -69,72 +70,77 @@ export const CustomScatterDot: React.FunctionComponent<CustomScatterDotProps> =
  * @return {React.ReactElement} Display the spider chart through the recharts module
  */
 export const RadarChartResults: React.FunctionComponent<RadarChartResultsProps> =
-  React.memo(({ skinDiagResults, resultsOk, renderCustomBarLabel }) => {
-    RadarChartResults.displayName = 'RadarChartResults';
+  React.memo(
+    ({ skinDiagResults, resultsOk, renderCustomBarLabel, viewportWidth }) => {
+      RadarChartResults.displayName = 'RadarChartResults';
 
-    const [activeDot, setActiveDot] = useState<number | null>(null);
+      const [activeDot, setActiveDot] = useState<number | null>(null);
 
-    const onClickHandler = useCallback((dot: number | null) => {
-      setActiveDot(dot);
-      switch (dot) {
-        case 0:
-          window.YMK.setSkincareResultType('texture');
-          break;
-        case 1:
-          window.YMK.setSkincareResultType('wrinkles');
-          break;
-        case 2:
-          window.YMK.setSkincareResultType('firmness');
-          break;
-        case 3:
-          window.YMK.setSkincareResultType('pore');
-          break;
-        case 4:
-          window.YMK.setSkincareResultType('moisture');
-          break;
-        case 5:
-          window.YMK.setSkincareResultType('radiance');
-          break;
-        default:
-          window.YMK.setSkincareResultType('all');
-          break;
-      }
-    }, []);
+      const onClickHandler = useCallback((dot: number | null) => {
+        setActiveDot(dot);
+        switch (dot) {
+          case 0:
+            window.YMK.setSkincareResultType('texture');
+            break;
+          case 1:
+            window.YMK.setSkincareResultType('wrinkles');
+            break;
+          case 2:
+            window.YMK.setSkincareResultType('firmness');
+            break;
+          case 3:
+            window.YMK.setSkincareResultType('pore');
+            break;
+          case 4:
+            window.YMK.setSkincareResultType('moisture');
+            break;
+          case 5:
+            window.YMK.setSkincareResultType('radiance');
+            break;
+          default:
+            window.YMK.setSkincareResultType('all');
+            break;
+        }
+      }, []);
 
-    return (
-      <SRadarChartResults>
-        <div className="chartBg">
-          {resultsOk && <img src={chartBg} alt="Chart background" />}
-        </div>
-        <ResponsiveContainer width={resultsOk ? 550 : 0} height={550}>
-          <RadarChart
-            data={skinDiagResults}
-            outerRadius={155}
-            width={550}
-            height={550}
+      return (
+        <SRadarChartResults>
+          <div className="chartBg">
+            {resultsOk && <img src={chartBg} alt="Chart background" />}
+          </div>
+          <ResponsiveContainer
+            width={resultsOk ? 550 : 0}
+            height={resultsOk ? 550 : 0}
           >
-            <PolarAngleAxis
-              dataKey="subject"
-              tick={renderCustomBarLabel as () => React.ReactElement}
-            />
-            <Radar
-              name="Results"
-              dataKey="A"
-              stroke="#BABABA"
-              fill="#EEEEEE"
-              fillOpacity={0.4}
-              dot={
-                <CustomScatterDot
-                  onClickHandler={onClickHandler}
-                  activeDot={activeDot}
-                  cx={0}
-                  cy={0}
-                  index={0}
-                />
-              }
-            />
-          </RadarChart>
-        </ResponsiveContainer>
-      </SRadarChartResults>
-    );
-  });
+            <RadarChart
+              data={skinDiagResults}
+              outerRadius={155}
+              width={550}
+              height={550}
+            >
+              <PolarAngleAxis
+                dataKey="subject"
+                tick={renderCustomBarLabel as () => React.ReactElement}
+              />
+              <Radar
+                name="Results"
+                dataKey="A"
+                stroke="#BABABA"
+                fill="#EEEEEE"
+                fillOpacity={0.4}
+                dot={
+                  <CustomScatterDot
+                    onClickHandler={onClickHandler}
+                    activeDot={activeDot}
+                    cx={0}
+                    cy={0}
+                    index={0}
+                  />
+                }
+              />
+            </RadarChart>
+          </ResponsiveContainer>
+        </SRadarChartResults>
+      );
+    }
+  );

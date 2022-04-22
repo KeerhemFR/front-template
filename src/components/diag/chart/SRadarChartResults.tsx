@@ -9,4 +9,14 @@ export const SRadarChartResults = styled.div`
     top: 20%;
     left: 21.7%;
   }
+
+  @media screen and (max-width: 576px) {
+    width: 100vw;
+    overflow-x: scroll;
+    margin: 0;
+
+    .chartBg {
+      left: 32.7%;
+    }
+  }
 `;

@@ -99,4 +99,15 @@ export const SDiagResult = styled.div`
   .grey {
     background: #aabbcd;
   }
+
+  @media screen and (max-width: 576px) {
+    h2 {
+      text-align: center;
+    }
+
+    .sidePicture {
+      width: 300px;
+      height: 400px;
+    }
+  }
 `;

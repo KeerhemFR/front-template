@@ -79,4 +79,21 @@ export const SInstructions = styled.div`
   .dnone {
     display: none;
   }
+
+  @media screen and (max-width: 576px) {
+    flex-direction: column;
+    width: 100%;
+
+    .instructions {
+      width: 100%;
+    }
+
+    .writtenInstructions {
+      align-items: center;
+    }
+
+    .optIn {
+      margin-top: 2em;
+    }
+  }
 `;
