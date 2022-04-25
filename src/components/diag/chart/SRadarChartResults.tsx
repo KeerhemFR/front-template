@@ -16,7 +16,7 @@ export const SRadarChartResults = styled.div`
     margin: 0;
 
     .chartBg {
-      left: 32.7%;
+      left: 33.5%;
     }
   }
 `;

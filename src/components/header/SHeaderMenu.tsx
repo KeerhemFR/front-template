@@ -83,6 +83,7 @@ export const SHeaderMenu = styled.header`
     position: sticky;
     top: 0;
     background-color: white;
+    z-index: 10;
 
     .desktopNav {
       display: none;
