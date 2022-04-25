@@ -8,4 +8,8 @@ export const SBreadcrumb = styled.p`
   color: var(--prim-color);
   margin: 11px 0 11px 60px;
   align-self: flex-start;
+
+  @media screen and (max-width: 576px) {
+    margin: 11px 0 11px 20px;
+  }
 `;
