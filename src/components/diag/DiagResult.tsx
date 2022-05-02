@@ -68,6 +68,7 @@ export const DiagResult = React.memo(() => {
   const [moduleLoading, setModuleLoading] = useState<boolean>(false);
   const [listeners, setListeners] = useState<any>([]);
   const [enableStart, setEnableStart] = useState<boolean>(false);
+  const [viewportWidth] = useState<number>(window.innerWidth);
 
   /**
    * Update the step we're on when setCurrentStep is used
@@ -345,7 +346,10 @@ export const DiagResult = React.memo(() => {
   useEffect(() => {
     if (window.YMK && currentStep === 1) {
       registerEvents();
-      window.YMK.init();
+      window.YMK.init({
+        width: `${viewportWidth < 576 ? 300 : 360}`,
+        height: `${viewportWidth < 576 ? 400 : 480}`,
+      });
       window.YMK.openSkincare();
     }
   }, [window.YMK, currentStep]);

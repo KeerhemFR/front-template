@@ -85,7 +85,7 @@ export const SFooter = styled.footer`
   }
 
   .infosBloc p {
-    font-size: 13px;
+    font-size: 14px;
     text-transform: uppercase;
     line-height: 120%;
     margin-bottom: 15px;
@@ -103,7 +103,7 @@ export const SFooter = styled.footer`
   }
 
   .infosList li {
-    font-size: 13px;
+    font-size: 14px;
     margin: 0.3em 1em;
     color: var(--prim-color);
   }
@@ -206,5 +206,39 @@ export const SFooter = styled.footer`
     font-size: 14px;
     color: var(--prim-color);
     margin: 30px 0 26px;
+  }
+
+  @media screen and (max-width: 576px) {
+    .rowContainer {
+      flex-flow: column wrap;
+    }
+
+    .bannerItem {
+      width: 100%;
+    }
+
+    .footerContent {
+      flex-flow: column-reverse wrap;
+    }
+
+    .footerInfos {
+      width: 100%;
+      padding: 27px 37px;
+    }
+
+    .infosCol {
+      width: 100%;
+      padding: 0;
+    }
+
+    .footerForm {
+      width: 100%;
+      padding: 27px 34px;
+    }
+
+    .submitForm {
+      width: 100%;
+      margin-top: 20px;
+    }
   }
 `;

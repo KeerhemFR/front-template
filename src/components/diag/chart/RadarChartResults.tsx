@@ -106,7 +106,10 @@ export const RadarChartResults: React.FunctionComponent<RadarChartResultsProps> 
         <div className="chartBg">
           {resultsOk && <img src={chartBg} alt="Chart background" />}
         </div>
-        <ResponsiveContainer width={resultsOk ? 550 : 0} height={550}>
+        <ResponsiveContainer
+          width={resultsOk ? 550 : 0}
+          height={resultsOk ? 550 : 0}
+        >
           <RadarChart
             data={skinDiagResults}
             outerRadius={155}

@@ -40,4 +40,16 @@ export const SRoutineLine = styled.div`
     width: 150px;
     height: 150px;
   }
+
+  @media screen and (max-width: 576px) {
+    width: 100vw;
+    height: 380px;
+    overflow-x: scroll;
+    justify-content: flex-start;
+
+    .productContent span {
+      height: 50px;
+      scrollbar-width: none;
+    }
+  }
 `;

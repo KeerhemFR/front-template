@@ -63,4 +63,8 @@ export const SProduct = styled.div`
     text-decoration-line: underline;
     color: #000000;
   }
+
+  @media screen and (max-width: 576px) {
+    width: 320px;
+  }
 `;

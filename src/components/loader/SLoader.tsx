@@ -91,4 +91,9 @@ export const SLoader = styled.div`
   .st1 {
     fill: #ffffff;
   }
+
+  @media screen and (max-width: 576px) {
+    width: 300px;
+    height: 400px;
+  }
 `;

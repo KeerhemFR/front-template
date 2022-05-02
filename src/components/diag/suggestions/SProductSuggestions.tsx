@@ -139,4 +139,49 @@ export const SProductSuggestions = styled.div`
     justify-content: space-evenly;
     width: 60%;
   }
+
+  @media screen and (max-width: 576px) {
+    .productContainer {
+      flex-direction: column;
+      height: auto;
+    }
+
+    .yourNeeds {
+      width: 100%;
+      flex-flow: row wrap;
+    }
+
+    .yourNeeds h4 {
+      width: 100%;
+      text-align: center;
+    }
+
+    .recapContainer {
+      width: 45%;
+    }
+
+    .recapContainer p {
+      margin-left: 10px;
+    }
+
+    .yourEssential {
+      width: 100%;
+      margin: 0;
+    }
+
+    .productBtns {
+      align-items: center;
+    }
+
+    .sliderPanel button {
+      width: 175px;
+    }
+
+    .routineContainer {
+      flex-flow: column wrap;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 `;
