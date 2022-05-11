@@ -16,6 +16,10 @@ const AUTHENTICATED_CONTEXT = createContext<AuthenticatedContext>([
   (() => {}) as React.Dispatch<React.SetStateAction<boolean>>,
 ]);
 
+/**
+ * Fonction to call the useContext easyly
+ * @returns {function} function to call useContext(AUTHENTICATED_CONTEXT)
+ */
 export function useAuthenticate(): AuthenticatedContext {
   const ctx = useContext(AUTHENTICATED_CONTEXT);
 
@@ -28,7 +32,6 @@ export function useAuthenticate(): AuthenticatedContext {
 
 /**
  * Main component that display header, footer and differents pages depending the path
- *
  * @returns {React.ReactElement} display headers, footer, and pages components depending the path
  */
 export const Main = () => {

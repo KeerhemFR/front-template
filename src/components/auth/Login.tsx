@@ -1,9 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useForm, SubmitHandler } from 'react-hook-form';
 
 import { useAuthenticate } from '~components/Main';
 
 import { SLogin } from '~components/auth/SLogin';
+
+type formInputs = {
+  email: string;
+  password: string;
+};
 
 /**
  * Login page
@@ -14,31 +20,20 @@ export const Login: React.FunctionComponent = React.memo(() => {
 
   const navigate = useNavigate();
 
+  const { register, handleSubmit } = useForm<formInputs>();
+
   const [, setIsAuthenticate] = useAuthenticate();
 
-  const [user, setUser] = useState<string>('');
-  const [pswrd, setPswrd] = useState<string>('');
   const [errMsg, setErrMsg] = useState<string>('');
 
   /**
-   * Handle the change in the input
-   * @param {React.SetStateAction} stateHandler function that will change the state of the targeted variable
-   * @param {HTMLInputElement} e event of the input value changing
+   * Function call by handleSubmit to check if the email and password are hte necessary one to log in
+   * @param {{string, string}} data values returned by the form on submit
    */
-  const handleInput = (
-    stateHandler: React.Dispatch<React.SetStateAction<string>>,
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    stateHandler(e.target.value);
-  };
-
-  /**
-   * Function that display a text if the submit button is clicked without the good values
-   */
-  const handleSubmit = () => {
+  const onSubmit: SubmitHandler<formInputs> = (data) => {
     if (
-      user !== import.meta.env.LVMH_USERLOG &&
-      pswrd !== import.meta.env.LVMH_USERPSW
+      data.email !== import.meta.env.LVMH_USERLOG &&
+      data.password !== import.meta.env.LVMH_USERPSW
     ) {
       setErrMsg('bad');
     } else {
@@ -49,22 +44,12 @@ export const Login: React.FunctionComponent = React.memo(() => {
 
   return (
     <SLogin>
-      <form onSubmit={(e) => e.preventDefault()}>
-        <label>User</label>
-        <input
-          type="text"
-          name="user"
-          value={user}
-          onChange={(e) => handleInput(setUser, e)}
-        />
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <label>Email</label>
+        <input type="email" {...register('email')} />
         <label>Password</label>
-        <input
-          type="password"
-          name="password"
-          value={pswrd}
-          onChange={(e) => handleInput(setPswrd, e)}
-        />
-        <button type="submit" value="Login" onClick={handleSubmit}>
+        <input type="password" {...register('password')} />
+        <button type="submit" value="Login">
           Submit
         </button>
       </form>
