@@ -72,6 +72,16 @@ export const SHeaderMenu = styled.header`
     height: 20px;
   }
 
+  .userName  {
+    position: absolute;
+    height: 40px;
+    top: 10px;
+    right: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   @media screen and (max-width: 576px) {
     width: 100%;
     display: flex;

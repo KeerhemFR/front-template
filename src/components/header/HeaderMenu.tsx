@@ -1,4 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
+import { useAuthenticate } from '~components/Main';
 
 import Logo from '~assets/images/Logo.png';
 import SearchIcon from '~assets/images/searchIcon.png';
@@ -18,6 +21,7 @@ export const HeaderMenu = React.memo(() => {
   HeaderMenu.displayName = 'HeaderMenu';
 
   const [displayMenu, setDisplayMenu] = useState<boolean>(false);
+  const [isAuthenticated] = useAuthenticate();
 
   return (
     <SHeaderMenu>
@@ -31,11 +35,16 @@ export const HeaderMenu = React.memo(() => {
         <img className="searchIconMobile" src={SearchIcon} />
       </div>
       <div className="headerLogo">
-        <img src={Logo} />
+        <Link to="/">
+          <img src={Logo} />
+        </Link>
       </div>
-      <div className="navIconMobile">
-        <img src={UserIcon} />
-      </div>
+      <Link to="/login">
+        <div className="navIconMobile">
+          <img src={UserIcon} />
+        </div>
+      </Link>
+
       <div className="navIconMobile">
         <img src={CartIcon} />
       </div>
@@ -71,12 +80,14 @@ export const HeaderMenu = React.memo(() => {
                       </span>
                       Search
                     </li>
-                    <li>
-                      <span>
-                        <img src={UserIcon} alt="" />
-                      </span>
-                      Account
-                    </li>
+                    <Link to="/login">
+                      <li>
+                        <span>
+                          <img src={UserIcon} alt="" />
+                        </span>
+                        {isAuthenticated ? 'Skindiag Demo' : 'Account'}
+                      </li>
+                    </Link>
                     <li>
                       <span>
                         <img src={GeolocIcon} alt="" />
@@ -103,9 +114,12 @@ export const HeaderMenu = React.memo(() => {
             <img src={SearchIcon} />
             SEARCH
           </li>
-          <li className="userIcon">
-            <img src={UserIcon} />
-          </li>
+          {isAuthenticated && <li className="userName">Skindiag Demo</li>}
+          <Link to="/login">
+            <li className="userIcon">
+              <img src={UserIcon} />
+            </li>
+          </Link>
           <li className="cartIcon">
             <img src={CartIcon} />
           </li>
