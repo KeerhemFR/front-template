@@ -47,6 +47,11 @@ button {
   cursor: pointer;
 }
 
+button:disabled{
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 .primaryButton {
   background: #000000;
   color: #ffffff;
