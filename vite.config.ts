@@ -11,6 +11,7 @@ export default defineConfig({
 	plugins: [
 		react(),
 	],
+	envPrefix: 'LVMH_',
 	build: {
 		minify: true,
 		emptyOutDir: true,
