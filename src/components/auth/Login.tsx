@@ -56,8 +56,7 @@ export const Login: React.FunctionComponent = React.memo(() => {
           <div className="formCard">
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="formBody">
-                {!errMsg.length && <p className="errMsg">{errMsg}</p>}
-
+                {!!errMsg.length && <p className="errMsg">{errMsg}</p>}
                 <div className="formInput">
                   <label>Email</label>
                   <input type="email" {...register('email')} />
