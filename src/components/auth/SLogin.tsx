@@ -34,6 +34,16 @@ export const SLogin = styled.div`
     letter-spacing: 2px;
   }
 
+  .errMsg {
+    border: 1px solid red;
+    border-radius: 2px;
+    color: red;
+    width: 70%;
+    margin: 0 auto;
+    padding: 10px;
+    font-size: 12px;
+  }
+
   .formCard {
     background-color: white;
     height: 450px;
@@ -180,7 +190,8 @@ export const SLogin = styled.div`
       text-align: left;
     }
 
-    .formInput {
+    .formInput,
+    .errMsg {
       width: 90%;
     }
   } ;
