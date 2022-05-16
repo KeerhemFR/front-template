@@ -38,7 +38,9 @@ export const Login: React.FunctionComponent = React.memo(() => {
       data.email !== import.meta.env.LVMH_USERLOG &&
       data.password !== import.meta.env.LVMH_USERPSW
     ) {
-      setErrMsg('bad');
+      setErrMsg(
+        'Invalid login or password. Remember that password is case-sensitive. Please try again.'
+      );
     } else {
       setIsAuthenticate(true);
       navigate('/');
@@ -54,6 +56,8 @@ export const Login: React.FunctionComponent = React.memo(() => {
           <div className="formCard">
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="formBody">
+                {errMsg.length > 0 && <p className="errMsg">{errMsg}</p>}
+
                 <div className="formInput">
                   <label>Email</label>
                   <input type="email" {...register('email')} />
@@ -77,7 +81,6 @@ export const Login: React.FunctionComponent = React.memo(() => {
               </div>
             </form>
           </div>
-          <p>{errMsg}</p>
         </section>
 
         <section>
