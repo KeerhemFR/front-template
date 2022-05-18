@@ -21,7 +21,7 @@ export const HeaderMenu = React.memo(() => {
   HeaderMenu.displayName = 'HeaderMenu';
 
   const [displayMenu, setDisplayMenu] = useState<boolean>(false);
-  const [isAuthenticated, , userName] = useAuthenticate();
+  const [authData] = useAuthenticate();
 
   return (
     <SHeaderMenu>
@@ -85,7 +85,9 @@ export const HeaderMenu = React.memo(() => {
                         <span>
                           <img src={UserIcon} alt="" />
                         </span>
-                        {isAuthenticated ? userName || 'Sam' : 'Account'}
+                        {authData.isAuthenticated
+                          ? authData.userName || 'Sam'
+                          : 'Account'}
                       </li>
                     </Link>
                     <li>
@@ -114,7 +116,9 @@ export const HeaderMenu = React.memo(() => {
             <img src={SearchIcon} />
             SEARCH
           </li>
-          {isAuthenticated && <li className="userName">{userName || 'Sam'}</li>}
+          {authData.isAuthenticated && (
+            <li className="userName">{authData.userName || 'Sam'}</li>
+          )}
           <Link to="/login">
             <li className="userIcon">
               <img src={UserIcon} />

@@ -8,7 +8,7 @@ import { useAuthenticate } from '~components/Main';
  * @returns {React.ReactElement} send back to the login page if not authentixated with a token
  */
 export const TokenRoute = React.memo(() => {
-  const [, setIsAuthenticated, , setUserName] = useAuthenticate();
+  const [authData, setAuthData] = useAuthenticate();
 
   const [searchParam] = useSearchParams();
 
@@ -26,8 +26,7 @@ export const TokenRoute = React.memo(() => {
 
   //Check if the token has not expirated
   if (exp > currentTime) {
-    setUserName(name);
-    setIsAuthenticated(true);
+    setAuthData({ ...authData, isAuthenticated: true, userName: name });
   }
 
   return (

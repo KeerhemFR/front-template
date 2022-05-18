@@ -8,9 +8,9 @@ import { useAuthenticate } from '~components/Main';
  * @returns {React.ReactElement} send back to the login page if not authenticated
  */
 export const ProtectedRoute: React.FunctionComponent = React.memo(() => {
-  const [isAuthenticated] = useAuthenticate();
+  const [authData] = useAuthenticate();
 
-  if (!isAuthenticated) {
+  if (!authData.isAuthenticated) {
     return <Navigate to="/login" />;
   }
 

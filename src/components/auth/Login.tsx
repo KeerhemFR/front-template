@@ -24,7 +24,7 @@ export const Login: React.FunctionComponent = React.memo(() => {
 
   const { register, handleSubmit } = useForm<formInputs>();
 
-  const [, setIsAuthenticate] = useAuthenticate();
+  const [authData, setAuthData] = useAuthenticate();
 
   const [errMsg, setErrMsg] = useState<string>('');
   const [isCheck, setIsCheck] = useState<boolean>(false);
@@ -42,7 +42,7 @@ export const Login: React.FunctionComponent = React.memo(() => {
         'Invalid login or password. Remember that password is case-sensitive. Please try again.'
       );
     } else {
-      setIsAuthenticate(true);
+      setAuthData({ ...authData, isAuthenticated: true });
       navigate('/');
     }
   };
