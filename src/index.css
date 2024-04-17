@@ -1,23 +1,8 @@
 /* local font initialisation */
-@font-face {
-  font-family: 'Guerlain Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: url('assets/fonts/GuerlainSans/GuerlainSans-Regular.eot'); /* IE9 Compat Modes */
-  src: local('Guerlain Sans'), local('GuerlainSans'),
-    url('assets/fonts/GuerlainSans/GuerlainSans-Regular.eot?#iefix')
-      format('embedded-opentype'),
-    /* IE6-IE8 */ url('assets/fonts/GuerlainSans/GuerlainSans-Regular.woff2')
-      format('woff2'),
-    /* Super Modern Browsers */
-      url('assets/fonts/GuerlainSans/GuerlainSans-Regular.woff') format('woff'),
-    /* Modern Browsers */
-      url('assets/fonts/GuerlainSans/GuerlainSans-Regular.ttf')
-      format('truetype'); /* Safari, Android, iOS */
-}
+
 /* all global css variable here */
 :root {
-  --main-font: Guerlain Sans;
+  --main-font:  Sans;
   --prim-color: #4a4a4a;
   --sec-color: #f5f5f5;
 }

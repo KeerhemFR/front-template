@@ -35,7 +35,6 @@ export const SFooter = styled.footer`
   }
 
   .bannerItem p {
-    font-family: Guerlain Sans;
     color: white;
     font-size: 13px;
     letter-spacing: 1px;

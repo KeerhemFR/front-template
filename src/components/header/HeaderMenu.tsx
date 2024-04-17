@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { useAuthenticate } from '~components/Main';
-
 import Logo from '~assets/images/Logo.png';
 import SearchIcon from '~assets/images/searchIcon.png';
 import UserIcon from '~assets/images/userIcon.png';
@@ -21,7 +19,6 @@ export const HeaderMenu = React.memo(() => {
   HeaderMenu.displayName = 'HeaderMenu';
 
   const [displayMenu, setDisplayMenu] = useState<boolean>(false);
-  const [authData] = useAuthenticate();
 
   return (
     <SHeaderMenu>
@@ -39,7 +36,7 @@ export const HeaderMenu = React.memo(() => {
           <img src={Logo} />
         </Link>
       </div>
-      <Link to="/login">
+      <Link to="/">
         <div className="navIconMobile">
           <img src={UserIcon} />
         </div>
@@ -66,7 +63,7 @@ export const HeaderMenu = React.memo(() => {
                 <li>SKINCARE</li>
                 <li>VALENTINE'S DAY</li>
                 <li>PERSONNALISATION</li>
-                <li>LA MAISON GUERLAIN</li>
+                <li>***</li>
                 <li>OUR COMMITMENT</li>
                 <li className="subList">
                   <ul>
@@ -80,14 +77,12 @@ export const HeaderMenu = React.memo(() => {
                       </span>
                       Search
                     </li>
-                    <Link to="/login">
+                    <Link to="/">
                       <li>
                         <span>
                           <img src={UserIcon} alt="" />
                         </span>
-                        {authData.isAuthenticated
-                          ? authData.userName || 'Sam'
-                          : 'Account'}
+                        Account
                       </li>
                     </Link>
                     <li>
@@ -110,15 +105,13 @@ export const HeaderMenu = React.memo(() => {
           <li>SKINCARE</li>
           <li>VALENTINE'S DAY</li>
           <li>PERSONNALISATION</li>
-          <li>LA MAISON GUERLAIN</li>
+          <li>***</li>
           <li>OUR COMMITMENT</li>
           <li className="searchItem">
             <img src={SearchIcon} />
             SEARCH
           </li>
-          {authData.isAuthenticated && (
-            <li className="userName">{authData.userName || 'Sam'}</li>
-          )}
+          <li className="userName">{'Account'}</li>
           <Link to="/login">
             <li className="userIcon">
               <img src={UserIcon} />

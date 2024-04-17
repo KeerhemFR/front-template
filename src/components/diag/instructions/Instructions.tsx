@@ -68,7 +68,7 @@ export const Instructions: React.FunctionComponent<InstructionsProps> =
                 </div>
                 <div>
                   <label htmlFor="optInData">
-                    J’autorise Guerlain à collecter et stocker mes données
+                    J’autorise *** à collecter et stocker mes données
                     personnelles et mes données personnelles sensibles (par
                     exemple, des photos de ma peau) afin de mener à bien la
                     consultation beauté

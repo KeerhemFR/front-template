@@ -339,7 +339,7 @@ export const DiagResult = React.memo(() => {
 
   //YMK module initialization key
   useEffect(() => {
-    initYMK(document, 'XXVC04vbl8fbfJXObuXm6w');
+    initYMK(document, 'here come the client key');
   }, []);
 
   //Open skin analyzis module at step 1

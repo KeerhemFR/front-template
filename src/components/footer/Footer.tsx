@@ -35,8 +35,8 @@ export const Footer = React.memo(() => {
               <img src={samplePicto} alt="Sample picto" />
             </div>
             <p>
-              3 samples offered* to discover Guerlain's expertise in skincare,
-              makeup, and fragrance
+              3 samples offered* to discover *** expertise in skincare, makeup,
+              and fragrance
               <br />
               *While stocks last
             </p>
@@ -90,25 +90,22 @@ export const Footer = React.memo(() => {
               <hr />
               <ul className="socialIcons">
                 <li>
-                  <a href="https://twitter.com/Guerlain" target="_blank">
+                  <a href="" target="_blank">
                     <img src={twitterIcon} />
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.facebook.com/Guerlain" target="_blank">
+                  <a href="" target="_blank">
                     <img src={facebookIcon} />
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.instagram.com/guerlain/" target="_blank">
+                  <a href="" target="_blank">
                     <img src={instagramIcon} />
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="https://www.youtube.com/channel/UCeHcEArSCMt-0vB47KaahQQ"
-                    target="_blank"
-                  >
+                  <a href="" target="_blank">
                     <img src={youtubeIcon} />
                   </a>
                 </li>
@@ -128,19 +125,19 @@ export const Footer = React.memo(() => {
               placeholder="Enter your e-mail"
             />
             <p>
-              GUERLAIN is responsible for processing your personal data. The
+              *** is responsible for processing your personal data. The
               information collected above is used to send our personalized
               offers, news and events. You have, amongst others, the right to
               access and correct your personal data and to request erasure. For
               more information about how we protect your personal data, please
               read our Privacy Policy or contact our data protection officer by
-              e-mail at the following address dpo@guerlain.fr
+              e-mail at the following address ***
             </p>
             <div className="checkboxContainer">
               <input type="checkbox" />
               <label>
-                I want to subscribe to Guerlain's Newsletter to receive
-                personalized offers and news by email.
+                I want to subscribe to ***'s Newsletter to receive personalized
+                offers and news by email.
               </label>
             </div>
             <input className="submitForm" type="submit" value="Subscribe" />

@@ -7,7 +7,7 @@ export const SStarterScreen = styled.div`
   width: 100%;
   height: 867px;
   overflow: hidden;
-  background-image: url('src/assets/images/visuel-hp-soin-desktop.png');
+  background-image: url('');
   background-repeat: no-repeat;
   background-position: center;
 

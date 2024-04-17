@@ -1,11 +1,8 @@
 import React, { createContext, useContext, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Login } from '~components/auth/Login';
 import { DiagResult } from '~components/diag/DiagResult';
 import { HeaderMenu } from '~components/header/HeaderMenu';
 import { StarterScreen } from '~components/starterScreen/StarterScreen';
-import { ProtectedRoute } from '~components/auth/ProtectedRoute';
-import { TokenRoute } from '~components/auth/TokenRoute';
 
 type AuthenticatedContext = [
   { isAuthenticated: boolean; userName: string },
@@ -42,30 +39,13 @@ export function useAuthenticate(): AuthenticatedContext {
 export const Main: React.FunctionComponent = React.memo(() => {
   Main.displayName = 'Main';
 
-  //const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
-  //const [userName, setUserName] = useState<string>('');
-  const [authData, setAuthData] = useState<{
-    isAuthenticated: boolean;
-    userName: string;
-  }>({
-    isAuthenticated: false,
-    userName: '',
-  });
-
   return (
     <React.Fragment>
-      <AUTHENTICATED_CONTEXT.Provider value={[authData, setAuthData]}>
-        <HeaderMenu />
-        <Routes>
-          <Route element={<TokenRoute />}>
-            <Route path="/" element={<StarterScreen />} />
-            <Route path="/login" element={<Login />} />
-            <Route element={<ProtectedRoute />}>
-              <Route path="/diagResult" element={<DiagResult />} />
-            </Route>
-          </Route>
-        </Routes>
-      </AUTHENTICATED_CONTEXT.Provider>
+      <HeaderMenu />
+      <Routes>
+        <Route path="/" element={<StarterScreen />} />
+        <Route path="/diagResult" element={<DiagResult />} />
+      </Routes>
     </React.Fragment>
   );
 });
